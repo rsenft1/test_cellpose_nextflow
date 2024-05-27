@@ -20,21 +20,9 @@ nextflow.enable.dsl = 2
 include { CELLPOSETEST  } from './workflows/cellposetest'
 include { PIPELINE_INITIALISATION } from './subworkflows/local/utils_nfcore_cellposetest_pipeline'
 include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_nfcore_cellposetest_pipeline'
-
+include { CELLPOSE } from '../modules/nf-core/cellpose/main'
 include { getGenomeAttribute      } from './subworkflows/local/utils_nfcore_cellposetest_pipeline'
 
-/*
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    GENOME PARAMETER VALUES
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-*/
-
-// TODO nf-core: Remove this line if you don't need a FASTA file
-//   This is an example of how to use getGenomeAttribute() to fetch parameters
-//   from igenomes.config using `--genome`
-params.fasta = getGenomeAttribute('fasta')
-
-/*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     NAMED WORKFLOWS FOR PIPELINE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
